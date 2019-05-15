@@ -8,7 +8,7 @@
         Preço: <input type="text" value="{{this.price}}" name="price" id="price"><br>
         <button type="submit">Editar</button>
     </form>
-    <br><br><br>
+    <br><br>
     <h1>Comentários</h1>
     <form action='/products/insert_comment/' method="POST">
         <input type="hidden" value="{{this.id}}" name="id" id="id">
@@ -16,7 +16,11 @@
         Comentário: <input type="text" name="comment" id="comment"><br>
         <button type="submit">Enviar Comentário</button>
     </form>
-    {{/each}}
+   {{/each}}
     <br><br>
-    {{author}}
-   <p>{{texto}}
+	<ul class="list-group">
+	{{#each comentarios}}
+		<li class="list-group-item active">{{this.author}}
+		<p>{{this.comment}}</li>
+	{{/each}}
+	</ul>

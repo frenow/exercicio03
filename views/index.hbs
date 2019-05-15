@@ -6,12 +6,12 @@
         <li>
             <p><b>{{this.id}} - {{this.name}}</b>: {{this.description}}</p>
             <p><b>Price</b>: ${{this.price}}</p>
-        </li>
         <form action='/products/' method="POST">
         <input type="hidden" value="{{this.id}}" name="id">
         <button type="submit">Deletar</button>
         </form>
+        <button onclick="window.location.href = '/products/{{this.id}}';">Editar</button>
 
-        <a href='/products/{{this.id}}'>Editar</a>
+        </li>
     {{/each}}
 </ul>

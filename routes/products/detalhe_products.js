@@ -15,15 +15,17 @@ router.get('/:id', function(req, res) {
       const id = req.params.id;
       var comentarios = [];
 
-      Comment.find({}).then(function (comments) {
+      Comment.find({ id:req.params.id }).then(function (comments) {
         comentarios = comments;
-        console.log('comentarios: '+comentarios[0].author);
-      });
 
       Products.getId(id)
-      .then(function(products) {      
-        res.render('detalhe_products', { products: products, author: comentarios[0].author });
+      .then(function(products) {
+        res.render('detalhe_products', { products: products, comentarios });
       })
+	  
+      });
+
+
 });
 
 /* GET home page. */
