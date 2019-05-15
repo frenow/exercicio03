@@ -1,0 +1,22 @@
+<h1>Detalhamento de Produto</h1>
+
+    {{#each products}}
+    <form action='/products/edit_products/' method="POST">
+        Id: <input type="text" value="{{this.id}}" name="id" id="id" readonly><br>
+        Nome: <input type="text" value="{{this.name}}" name="name" id="name"><br>
+        Descrição: <input type="text" value="{{this.description}}" name="description" id="description"><br>
+        Preço: <input type="text" value="{{this.price}}" name="price" id="price"><br>
+        <button type="submit">Editar</button>
+    </form>
+    <br><br><br>
+    <h1>Comentários</h1>
+    <form action='/products/insert_comment/' method="POST">
+        <input type="hidden" value="{{this.id}}" name="id" id="id">
+        Autor: <input type="text" name="author" id="author"><br>
+        Comentário: <input type="text" name="comment" id="comment"><br>
+        <button type="submit">Enviar Comentário</button>
+    </form>
+    {{/each}}
+    <br><br>
+    {{author}}
+   <p>{{texto}}
